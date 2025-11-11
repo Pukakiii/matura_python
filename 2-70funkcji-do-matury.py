@@ -108,3 +108,36 @@ print(math.lcm(12, 15))
 print(math.lcm(100, 75))  
 print(math.lcm(4, 6))
 print(math.lcm(0, 0))
+
+'''STRING FUNKCJE'''
+# s.strip()  # usuwa białe znaki z początku i końca
+s = "   Hi world?   \n"
+print(s)
+print(s.strip())
+print(s.lstrip())
+print(s.rstrip())
+
+# line.split() - dzieli string na liste 
+line = "Jiao has a cat"
+words = line.split()
+print(words)
+csv="2024;05;03"
+print(csv.split(';'))
+
+# dzieli na liste
+print(list("Hello")) 
+
+# "sep".join(words) - łączy liste w string z separatorem
+words= ['ja', 'm', 'mam', 'kota']
+print("".join(words))
+print(" ".join(words))
+print("-".join(words))
+
+# a.replace(old, new) - zamienia old na new w stringu
+a = "kiwi, kiwi, kiwi"
+print(a)
+print(a.replace("kiwi", "banan"))
+print(a.replace("kiwi", "banan", 2))  # tylko 2 pierwsze
+
+bin="0b101010"
+print(bin.replace('0b', ""))
