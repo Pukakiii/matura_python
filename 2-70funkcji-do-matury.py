@@ -141,3 +141,238 @@ print(a.replace("kiwi", "banan", 2))  # tylko 2 pierwsze
 
 bin="0b101010"
 print(bin.replace('0b', ""))
+ 
+# s.find(sub) - zwraca indeks lub -1
+text="To jest test"
+print(text.find('jest')) # zwraca 3
+print(text.find('nie ma')) # zwraca -1
+
+print(text.index("test")) # 8
+# print(text.index("brak")) # ValueError
+
+#s.count(sub) - ile razy występuje wyszukiwany element:
+
+bin = "1010100100101000010000101111"
+
+print(bin.count("1"))
+print(bin.count("0"))
+print(bin.count("10"))
+print(bin.startswith("1"))
+print(bin.endswith("0"))
+
+# s.lower() / s.upper()
+stringi="Pithon"
+print(stringi.lower())
+print(stringi.upper())
+
+# s.isdigit() - czy tylko cyfry
+print("12345".isdigit())
+print("12345abc".isdigit())
+
+# s.isalpha() - czy tylko litery
+print("abcdDEF".isalpha())
+print("12345abc".isalpha())
+
+# ord(c) - kod ASCII/Unicode
+print(ord('A'))
+print(ord('h'))
+print(ord('ą')) # unicode! dla polskich znaków
+
+# chr(n) - znak o kodzie n
+print(chr(65))
+print(chr(76))
+
+# sub in s - czy jest podciąg
+p="To jest test"
+print("to" in p) #False
+print("jest" in p) #True
+
+'''Funkcje na listach'''
+nums = [2, 9, 3, 7]
+print(max(nums))
+print(min(nums))
+print(len(nums))
+print(sum(nums))
+
+print(sorted(nums))
+print(sorted(nums, reverse=True))
+sorted(nums) # - nie!!! zmienia listy
+print(nums) 
+nums.sort() # - zmienia!!! listy
+print(nums) 
+nums.reverse() # - odwraca i zmienia listę!
+print(nums) 
+
+#l.append(x) - dodaje na koniec
+fruits=["mango", "banana"]
+fruits.append('pear')
+print(fruits)
+
+# l.extend() - dodaje wiele
+fruits.extend(["kiwi","melon"])
+print(fruits)
+
+# l.insert(index, element) - wstawia na pozycję
+fruits.insert(1, 'watermelon')
+print(fruits)
+fruits.insert(0, 'aboilowaer')
+print(fruits)
+
+# l.pop() - usuwa element na końcu i go zwraca
+fruit=fruits.pop()
+print(fruit)
+
+print(fruits.pop(1)) #usuwa z podanej pozycji
+print(fruits)
+
+# l.remove(element) - usuwa pierwsze wystąpienie
+num=[1,2,2,3]
+num.remove(2)
+print(num)
+
+num.clear() # - wyczyszcza listę
+print(num)
+
+# l.count(element) - liczba wystąpień
+colors=["red",'green', 'red', "blue"]
+print(colors.count('red'))
+
+# l.index(element) - zwraca indeks pierwszego wystąpienia
+print(colors.index("blue"))
+# print(colors.find("blue")) - BŁĄD, find() nie działa na listach
+
+# list(set(l)) - usunięcie powtórzeń z listy
+
+numbers = [1, 2, 2, 4, 5,5 ,5]
+unique = list(set(numbers))
+print(unique)
+
+# zip(l1, l2) - tworzy pary
+names=["Ala", "Jan"]
+ages=[18, 20]
+print(list(zip(names,ages)))
+
+for name, age in zip(names, ages):
+    print(f"{name} ma {age} lat")
+
+animals=["ryba", 'kot', "królik"]
+for i, a in enumerate(animals):
+    print(f"{i}: {a}")
+
+# I
+for i, (name, age) in enumerate(zip(names,ages)):
+    print(f"{i}: {name} ma {age} lat")
+# II
+for i, value in enumerate(zip(names,ages)):
+    name, age = value
+    print(f"{i}: 2 {name} ma {age} lat")
+
+# Operacje na zbiorach
+
+# set(l) - tworzy zbiór , usuwa duplikaty
+n=set(numbers)
+print(n) # w klamrowych nawiasach
+ 
+# z.add(x) - dodaje element do zbioru
+zbiór={1,2}
+zbiór.add(3)
+print(zbiór)
+
+# z.remove(x) - usuwa element (rzuca błąd jeśli nie ma)
+zbiór.remove(2)
+print(zbiór)
+
+# z1.union(z2) - elementy z obu zbiorów
+z1={1,2,4}
+z2={3,4,5,6}
+print(z1.union(z2))
+
+# z1.intersection(z2) - wspólne elementy
+z1={1,2,3}
+z2={2,3,4}
+print(z1.intersection(z2))
+
+# z1.difference(z2) - zwraca elementy w z1, których nie ma w z2
+print(z1.difference(z2)) 
+
+"""Operacje na słownikach"""
+
+# słownik.keys()/.values() - lista kluczy/wartości
+slownik={"a":1,"b":2,"c":3}
+print(list(slownik.keys())) # dodając metod .list() otrzymuje się czystą listę 
+print(list(slownik.values())) # dodając metod .list() otrzymuje się czystą listę 
+
+# slownik.items() - lista par (klucz, wartość)
+print(slownik.items())
+print(list(slownik.items()))
+for k, w in slownik.items():
+    print(f"{k}->{w}")
+
+# slwonik.get(klucz, domyślna) - bezpieczne pobieranie
+print(slownik.get("b")) 
+print(slownik.get("x")) # NOne, bo nie ma klucza "x" w tym słowniku
+print(slownik.get("x", 10)) # 0 (drugi argument to wartość domyślan, gdyby nie było poszukiwanego klucza)
+print(slownik.get("b", 3)) # - nie zada ,poniewaz "b" klucz juz zdefioniowany
+
+# slownik.clear() - czyści słownik
+slownik.clear()
+print(slownik)
+
+# dict.fromkeys(lista kluczy, domyślna wartość)
+klucze = [1,2,2,2,3,4,5,5,6,6,6,7,8,8,10]
+slownik2= dict.fromkeys(klucze,0)
+print(slownik2)
+for klucz in klucze:
+    slownik2[klucz]+=1
+print(slownik2)
+
+# slownik.default(klucz, domyślna) - ustawia tylko, jeśli klucza nie ma
+slownik3={}
+for klucz in klucze:
+    slownik3.setdefault(klucz, 0)
+    slownik3[klucz]+=1
+print(slownik3)
+
+# Counter z collections - zliczanie elementów
+from collections import Counter
+
+print(Counter("matura"))
+klucze = [1,2,2,2,3,4,5,5,6,6,6,7,8,8,10]
+licznik=Counter(klucze)
+print(licznik)
+print(dict(licznik))
+posortowane=dict(sorted(licznik.items(), key= lambda x: x[1], reverse=True))
+print(posortowane)
+
+# Zamiana stringów na liczby
+print(list(map(int, ['1','2','3'])))
+print(list(map(float, ['1','2','3'])))
+
+print(list(map(lambda x: x*2, [1,2,3])))
+
+litery=['a','b','cde']
+print(list(map(str.upper, litery)))
+
+# lambda - funkcje anonimowe 
+
+# prosta funkcja mnozaca x razy 2
+f=lambda x: x*2
+print(f(5))
+
+# filter() Filtrowanie tylko liczby parzyste
+klucze = [1,2,2,2,3,4,5,5,6,6,6,7,8,8,10]
+print(list(filter(lambda x: x%2==0, klucze)))
+
+# filter() Filtrowanie NIE pustych stringów
+napisy=['', 'stringi  ', "  ", "abc"]
+print(list(filter(lambda x: x.strip(), napisy)))
+
+# sorted(lista, key=func, reverse=bool) - sortowanie według funkcji
+imiona=['Jan', "aleksandra", "Piotr"]
+print(sorted(imiona, key=len))
+
+oceny={"Ala":3,"Jan":2,"Paweł":1}
+print(sorted(oceny.items(), key=lambda x: x[1]))
+
+liczby=[-10,3,1,-2]
+print(sorted(liczby,key=abs, reverse=True))
