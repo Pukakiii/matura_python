@@ -1,4 +1,4 @@
-# INPUT PRACTISE / STRING FUNCTIONALITY / ARYTHMETIC OPERATIONS / LOOPS and other functionality
+# INPUT PRACTISE / STRING FUNCTIONALITY / ARYTHMETIC OPERATIONS / LOOPS / TUPLES / DICTIONARIES / CLASS and other functionality
 
 """
 name=input('name: ')
@@ -108,8 +108,49 @@ for item in range(5, 10, 2):
 #   for c in range(num):
 #     output+='x'
 #   print(output)
-list=[3,1,4.4,3,5]
-list.sort()
-list.reverse()
-list.remove(4.4)
-print(list)
+# list=[3,1,4.4,3,5]
+# list.sort()
+# list.reverse()
+# list.remove(4.4)
+# print(list)
+""" 
+tuple_ = (1, 2, 4) # - usefull for keeping immutable data
+x,y,z=tuple_
+print(tuple_[0])
+print(x,z,y)
+print(tuple_.count(4))
+print(tuple_.index(4)) 
+"""
+""" 
+dictionary={
+    "name": 'John Smith',
+    "age": 30,
+    "is_certified": False,
+}
+print(dictionary.get("age"))
+print(dictionary.get("birthday", "Jan 1 1982")) 
+"""
+""" 
+def greet_user (first_name,last_name):
+print(f'Hi {first_name} {last_name}!')
+print('Welcome aboard')
+print("Start")
+greet_user (last_name="Smith", first_name="Joe")
+print("Finish")
+"""
+class Point: 
+    def __init__(self, x,y):
+        self.x = x
+        self.y = y
+    def move(self):
+        print('move')
+    def draw(self):
+        print('draw')
+point1=Point(1,2)
+point1.x=10
+point1.y=20
+print(point1.x)
+point1.draw()
+
+point2=Point(15,20)
+print(point2)
