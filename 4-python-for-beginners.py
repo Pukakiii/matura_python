@@ -138,6 +138,7 @@ print("Start")
 greet_user (last_name="Smith", first_name="Joe")
 print("Finish")
 """
+""" 
 class Point: 
     def __init__(self, x,y):
         self.x = x
@@ -153,4 +154,5 @@ print(point1.x)
 point1.draw()
 
 point2=Point(15,20)
-print(point2)
+print(point2) 
+"""
